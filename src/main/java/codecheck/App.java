@@ -19,17 +19,19 @@ public class App {
     }
 
     public static String answer(String A) {
-        int AA = Integer.parseInt(A);
-        if (AA >= 0 && AA <= 1000) {
-            if (idiot(AA)) {
-                return IDIOT;
-            } else if (stupid(AA)) {
-                return STUPID;
-            } else if (idiot(AA) && stupid(AA)) {
-                return DUMB;
-            } else {
-            	return SMART;
-            }
+    	 if (isNumber(A)) {
+    		 int AA = Integer.parseInt(A);
+    		 if (AA >= 0 && AA <= 1000) {
+    			 if (idiot(AA) && stupid(AA)) {
+    				 return IDIOT;
+    			 } else if (stupid(AA)) {
+    				 return STUPID;
+    			 } else if (idiot(AA))  {
+    				 return DUMB;
+    			 } else {
+    				 return SMART;
+    			 }
+    		 }
         } else {
         	return INVALID;
         }
@@ -49,5 +51,14 @@ public class App {
             answer = true;
         }
         return answer;
+    }
+    
+    public boolean isNumber(String num) {
+        try {
+            Integer.parseInt(num);
+            return true;
+            } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
