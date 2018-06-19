@@ -19,7 +19,7 @@ public class App {
     }
 
     public static String answer(String A) {
-         if (isNumber(A)) {
+         if (isNumber(A) && isZenkaku(A)) {
              int AA = Integer.parseInt(A);
              if (AA >= 0 && AA <= 1000) {
                  if (idiot(AA) && stupid(AA)) {
@@ -59,5 +59,12 @@ public class App {
             } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static boolean isZenkaku(String A){
+        if(A == null){
+          return false;
+        }
+        return true;
     }
 }
