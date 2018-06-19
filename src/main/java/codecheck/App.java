@@ -68,6 +68,12 @@ public class App {
         if(A == null){
           return false;
         }
+        int len = A.length();
+        byte[] bytes = A.getBytes();
+        if ( len != bytes.length ) {
+            return false;
+        } else {
         return true;
+        }
     }
 }
