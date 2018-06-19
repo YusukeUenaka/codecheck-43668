@@ -10,11 +10,12 @@ public class App {
     private static String INVALID = "invailed";
 
     public static void main(String[] args) {
+        String output = null;
         for (int i = 0, l = args.length; i < l; i++) {
-            String output = String.format("argv[%s]: %s", i, args[i]);
-            //String output = answer(args[i]);
-            System.out.println(output);
+            //String output = String.format("argv[%s]: %s", i, args[i]);
+            output = answer(args[i]);
         }
+        System.out.println(output);
 
     }
 
