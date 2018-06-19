@@ -15,8 +15,8 @@ public class App {
             //String output = String.format("argv[%s]: %s", i, args[i]);
             output[i] = answer(args[i]);
         }
-        System.out.println(output);
-
+        //System.out.println(output);
+        System.out.println(Arrays.deepToString(output));
     }
 
     public static String answer(String A) {
