@@ -8,7 +8,7 @@ public class App {
     private static String STUPID = "stupid";
     private static String DUMB = "dumb";
     private static String SMART = "smart";
-    private static String INVALID = "invailed";
+    private static String INVALID = "invalid";
 
 
     public static void main(String[] args) {
