@@ -19,22 +19,21 @@ public class App {
     }
 
     public static String answer(String A) {
-    	 if (isNumber(A)) {
-    		 int AA = Integer.parseInt(A);
-    		 if (AA >= 0 && AA <= 1000) {
-    			 if (idiot(AA) && stupid(AA)) {
-    				 return IDIOT;
-    			 } else if (stupid(AA)) {
-    				 return STUPID;
-    			 } else if (idiot(AA))  {
-    				 return DUMB;
-    			 } else {
-    				 return SMART;
-    			 }
-    		 }
-        } else {
-        	return INVALID;
+         if (isNumber(A)) {
+             int AA = Integer.parseInt(A);
+             if (AA >= 0 && AA <= 1000) {
+                 if (idiot(AA) && stupid(AA)) {
+                     return IDIOT;
+                 } else if (stupid(AA)) {
+                     return STUPID;
+                 } else if (idiot(AA))  {
+                     return DUMB;
+                 } else {
+                     return SMART;
+                 }
+             }
         }
+        return INVALID;
     }
 
     public static boolean idiot(int AA) {
@@ -52,8 +51,8 @@ public class App {
         }
         return answer;
     }
-    
-    public boolean isNumber(String num) {
+
+    public static boolean isNumber(String num) {
         try {
             Integer.parseInt(num);
             return true;
