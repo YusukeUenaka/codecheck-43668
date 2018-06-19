@@ -43,7 +43,7 @@ public class App {
 
     public static boolean stupid(int AA) {
         boolean answer = false;
-        if (Integer.toString(AA).contains("3")) {
+        if ((Integer.toString(AA).contains("3")) && (AA >= 0) && (AA<=1000)) {
             answer = true;
         }
         return answer;
