@@ -20,22 +20,24 @@ public class App {
 
     public static String answer(String A) {
         int AA = Integer.parseInt(A);
-        if (idiot(AA)) {
-            return IDIOT;
-        } else if (stupid(AA)) {
-            return STUPID;
-        } else if (idiot(AA) && stupid(AA)) {
-            return DUMB;
-        } else if (AA <= 1000) {
-            return SMART;
+        if (AA >= 0 && AA <= 1000) {
+            if (idiot(AA)) {
+                return IDIOT;
+            } else if (stupid(AA)) {
+                return STUPID;
+            } else if (idiot(AA) && stupid(AA)) {
+                return DUMB;
+            } else {
+            	return SMART;
+            }
         } else {
-            return INVALID;
+        	return INVALID;
         }
     }
 
     public static boolean idiot(int AA) {
         boolean answer = false;
-        if ((AA%3 == 0) && (AA >= 0) && (AA<=1000)) {
+        if ((AA%3 == 0)) {
             answer = true;
         }
         return answer;
@@ -43,7 +45,7 @@ public class App {
 
     public static boolean stupid(int AA) {
         boolean answer = false;
-        if ((Integer.toString(AA).contains("3")) && (AA >= 0) && (AA<=1000)) {
+        if ((Integer.toString(AA).contains("3"))) {
             answer = true;
         }
         return answer;
