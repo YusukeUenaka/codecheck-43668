@@ -23,11 +23,11 @@ public class App {
              int AA = Integer.parseInt(A);
              if (AA >= 0 && AA <= 1000) {
                  if (idiot(AA) && stupid(AA)) {
-                     return IDIOT;
+                     return DUMB;
                  } else if (stupid(AA)) {
                      return STUPID;
                  } else if (idiot(AA))  {
-                     return DUMB;
+                     return IDIOT;
                  } else {
                      return SMART;
                  }
