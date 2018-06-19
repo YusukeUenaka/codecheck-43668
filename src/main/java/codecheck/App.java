@@ -8,12 +8,13 @@ public class App {
     private static String DUMB = "dumb";
     private static String SMART = "smart";
     private static String INVALID = "invailed";
+    private static String[] output;
 
     public static void main(String[] args) {
         for (int i = 0, l = args.length; i < l; i++) {
             //String output = String.format("argv[%s]: %s", i, args[i]);
-            String output = answer(args[i]);
-            System.out.println(output);
+            output[i] = answer(args[i]);
+            System.out.println(output[i]);
         }
 
     }
