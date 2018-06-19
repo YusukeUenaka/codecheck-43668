@@ -1,5 +1,7 @@
 package codecheck;
 
+import java.util.Arrays;
+
 
 public class App {
 
@@ -15,8 +17,8 @@ public class App {
             //String output = String.format("argv[%s]: %s", i, args[i]);
             output[i] = answer(args[i]);
         }
-        //System.out.println(output);
-        System.out.println(Arrays.deepToString(output));
+        System.out.println(Arrays.toString(output));
+
     }
 
     public static String answer(String A) {
