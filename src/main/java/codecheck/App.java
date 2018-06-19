@@ -11,10 +11,6 @@ public class App {
 
     public static void main(String[] args) {
         for (int i = 0, l = args.length; i < l; i++) {
-            String output = String.format("argv[%s]: %s", i, args[i]);
-            System.out.println(output);
-        }
-        for (int i = 0, l = args.length; i < l; i++) {
             //String output = String.format("argv[%s]: %s", i, args[i]);
             String output = answer(args[i]);
             System.out.println(output);
@@ -24,12 +20,32 @@ public class App {
 
     public static String answer(String A) {
         int AA = Integer.parseInt(A);
-        if ((AA%3 == 0) && (AA >= 0) && (AA<=1000)) {
+        if (idiot(AA)) {
             return IDIOT;
+        } else if (stupid(AA)) {
+            return STUPID;
+        } else if (idiot(AA) && stupid(AA)) {
+            return DUMB;
         } else if (AA <= 1000) {
             return SMART;
         } else {
             return INVALID;
         }
+    }
+
+    public static boolean idiot(int AA) {
+        boolean answer = false;
+        if ((AA%3 == 0) && (AA >= 0) && (AA<=1000)) {
+            answer = true;
+        }
+        return answer;
+    }
+
+    public static boolean stupid(int AA) {
+        boolean answer = false;
+        if (Integer.toString(AA).contains("3")) {
+            answer = true;
+        }
+        return answer;
     }
 }
