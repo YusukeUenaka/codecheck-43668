@@ -1,80 +1,79 @@
 package codecheck;
 
-import java.util.regex.Pattern;
+
 
 public class App {
 
-    private static String ENCODE = "encode";
-    private static String DECODE = "decode";
-    private static String ALIGN = "align";
-    private static int SHIN_10 = 10;
-    private static int SHIN_9 = 9;
+    private static String IDIOT = "idiot";
+    private static String STUPID = "stupid";
+    private static String DUMB = "dumb";
+    private static String SMART = "smart";
+    private static String INVALID = "invalid";
+
 
     public static void main(String[] args) {
-        String[] args = new String[2];
-        String CMD = null;
-        String NUM = null;
+        String output = null;
         for (int i = 0, l = args.length; i < l; i++) {
             //String output = String.format("argv[%s]: %s", i, args[i]);
-             if (i == 0) {
-                 CMD = args[i];
-             } else {
-                 NUM = args[i];
+            output = answer(args[i]);
+            System.out.println(output);
+        }
+
+    }
+
+    public static String answer(String A) {
+         if (isNumber(A) && isZenkaku(A)) {
+             int AA = Integer.parseInt(A);
+             if (AA >= 0 && AA <= 1000) {
+                 if (idiot(AA) && stupid(AA)) {
+                     return DUMB;
+                 } else if (stupid(AA)) {
+                     return STUPID;
+                 } else if (idiot(AA))  {
+                     return IDIOT;
+                 } else {
+                     return SMART;
+                 }
              }
         }
-        String output = answer(CMD, NUM);
-        System.out.println(output);
+        return INVALID;
     }
 
-    public static String answer(String CMD, String NUM) {
-        String str = null;
-        String cmd = CMD;
-        String num = NUM;
-        //引数二つ目の0判定
-        //if (!num.isEmpty()) {
-        //    str = num;
-        //}
-
-        //処理
-        //if (isNumber(num) && ENCODE.equals(cmd)) {
-            if (ENCODE.equals(cmd)) {
-            return  encode(num, SHIN_10);
-        } else if (DECODE.equals(cmd)) {
-            Long numL = Long.parseLong(num);
-            return decode(numL, SHIN_10);
-        } else if (ALIGN.equals(cmd)) {
-            return align(num);
+    public static boolean idiot(int AA) {
+        boolean answer = false;
+        if ((AA%3 == 0)) {
+            answer = true;
         }
-        return null;
-
+        return answer;
     }
 
-    public static String encode(String A, int B) {
-        String str = A;
-        int radix = B;
-        Long result = Long.parseLong(str, radix);
-        return String.valueOf(result);
+    public static boolean stupid(int AA) {
+        boolean answer = false;
+        if ((Integer.toString(AA).contains("3"))) {
+            answer = true;
+        }
+        return answer;
     }
 
-    public static String decode(Long A, int B) {
-        Long str = A;
-        int radix = B;
-        String result = Long.toString(str, radix);
-        return result;
-    }
-
-    public static String align(String A) {
-        String result = null;
-        String str = A;
-        int base = Integer.parseInt(str, SHIN_9);
-
-        return result;
-    }
-
-    public static boolean isNumber(String num){
-        if(Pattern.matches("^[1-9]?[0-9]+$", num)){
+    public static boolean isNumber(String num) {
+        try {
+            Integer.parseInt(num);
             return true;
+            } catch (NumberFormatException e) {
+            return false;
         }
-        return false;
+    }
+
+    public static boolean isZenkaku(String A){
+        if(A == null){
+          return false;
+        }
+        int len = A.length();
+        byte[] bytes = A.getBytes();
+        if ( len != bytes.length ) {
+            return false;
+        } else {
+        return true;
+        }
     }
 }
